@@ -1,0 +1,131 @@
+/* ---- Bollywood Game Styles ---- */
+:root{
+  --bg1:#0ea5e9;         /* blue */
+  --bg2:#ec4899;         /* pink */
+  --ink:#0b1021;         /* deep text */
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#7c3aed;
+  --good:#16a34a;
+  --bad:#dc2626;
+  --shadow: 0 12px 30px rgba(13,20,48,.18);
+  --radius: 18px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.app{
+  width:min(1100px, 96vw);
+  background: radial-gradient(1200px 500px at -15% -15%, rgba(255,255,255,.35), transparent),
+              radial-gradient(600px 600px at 115% -25%, rgba(255,255,255,.25), transparent),
+              var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+header{
+  padding:18px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(90deg, rgba(255,255,255,.6), rgba(255,255,255,.2));
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.brand{display:flex;gap:12px;align-items:center}
+.brand .logo{
+  width:46px;height:46px;border-radius:50%;
+  background: conic-gradient(from 0deg, #60a5fa, #fb7185, #a78bfa, #60a5fa);
+  display:grid;place-items:center;
+  color:white;font-weight:800;font-family:"Baloo 2";font-size:20px;
+  box-shadow:0 8px 24px rgba(99,102,241,.35) inset;
+}
+.brand h1{font-family:"Baloo 2";margin:0;font-size:26px;letter-spacing:.3px}
+.mode-picker{display:flex;gap:10px;flex-wrap:wrap;}
+.chip{
+  border:none;cursor:pointer;padding:10px 14px;border-radius:999px;
+  background:#f1f5f9;color:#0b1021;font-weight:600;transition:.2s;
+}
+.chip.active{background:#dbeafe; outline:2px solid #60a5fa}
+.chip:hover{transform:translateY(-1px)}
+main{padding:22px;display:grid;gap:18px}
+.row{display:grid;grid-template-columns: 1.1fr .9fr; gap:18px}
+@media (max-width: 900px){ .row{grid-template-columns:1fr} }
+.card{
+  background:white;border-radius:16px;padding:18px;box-shadow:var(--shadow);
+}
+.title{margin:0 0 10px;font-weight:800;letter-spacing:.3px}
+.sub{margin:2px 0 14px;color:var(--muted);font-size:14px}
+.secret{
+  font-family:"Baloo 2"; font-size:36px; line-height:1.25;
+  letter-spacing:2px; word-break:break-word;
+  display:flex; flex-wrap:wrap; gap:8px 10px;
+}
+.secret .ch{
+  display:inline-block; min-width:26px; text-align:center;
+  padding:8px 6px; border-radius:10px; background:#f8fafc;
+  box-shadow: inset 0 2px 0 rgba(0,0,0,.05);
+}
+.secret .sp{background:transparent; box-shadow:none; min-width:14px}
+.keyboard{display:grid; gap:10px}
+.keys{display:grid;grid-template-columns: repeat(13, 1fr); gap:8px}
+@media (max-width:680px){ .keys{grid-template-columns: repeat(9, 1fr)} }
+.key{
+  user-select:none; cursor:pointer; border:none; font-weight:800;
+  padding:10px 0;border-radius:12px; background:#eef2ff;
+  transition:.15s; box-shadow: 0 4px 0 #c7d2fe;
+}
+.key:active{transform:translateY(1px)}
+.key[disabled]{opacity:.35;cursor:not-allowed;box-shadow:none}
+.legend{display:flex;gap:10px; align-items:center; flex-wrap:wrap}
+.lives{
+  font-family:"Baloo 2"; font-weight:800; letter-spacing:3px;
+  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+}
+.life{
+  padding:6px 8px; border-radius:10px; background:#fff1f2; color:#be123c;
+  box-shadow: inset 0 2px 0 rgba(190,18,60,.15);
+  position:relative;
+}
+.life.cut::after{
+  content:""; position:absolute; inset:0; border-radius:10px;
+  background: repeating-linear-gradient(135deg, rgba(12,15,36,.0) 0 10px, rgba(12,15,36,.2) 10px 20px);
+  transform:skewX(-12deg); opacity:.6
+}
+.status{
+  padding:10px 14px; border-radius:12px; background:#ecfeff; color:#164e63; font-weight:600
+}
+.btn{
+  border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;
+  background:linear-gradient(90deg,#60a5fa,#fb7185); color:white; box-shadow:0 10px 20px rgba(99,102,241,.35);
+}
+.btn.secondary{background:#f1f5f9;color:#0b1021;box-shadow:none}
+.setup{display:grid; gap:10px}
+.setup input, .setup textarea, .setup select{
+  width:100%; padding:12px 14px; border:2px solid #e5e7eb; border-radius:12px; font:inherit;
+  background:#f8fafc
+}
+.setup label{font-weight:700;font-size:14px}
+.flex{display:flex; gap:10px; flex-wrap:wrap}
+.right .card{height:100%}
+.stack{display:grid; gap:12px}
+.muted{color:var(--muted)}
+.small{font-size:12px}
+.win, .lose{
+  text-align:center; padding:18px; border-radius:14px; background:#f8fafc; font-weight:700
+}
+.win{color:var(--good)}
+.lose{color:var(--bad)}
+canvas#fx{
+  position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:5;
+}
+.toast{
+  position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+  background:white; border-radius:999px; padding:8px 14px; box-shadow:var(--shadow); z-index:6;
+  font-weight:700
+}
